@@ -24,6 +24,10 @@ const INITIAL_POSTS = [
 function App() {
   const [posts, setPosts] = useState(INITIAL_POSTS);
 
+  const handleAddPost = (post) => {
+    setPosts([post, ...posts])
+  }
+
   return (
     <BrowserRouter>
       <div>
@@ -32,7 +36,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/posts' element={<Posts postsList={posts} />} />
           <Route path='/posts/:id' element={<PostDetails postsList={posts} />} />
-          <Route path='/new-post' element={<CreatePost />} />
+          <Route path='/new-post' element={<CreatePost onAddPost={handleAddPost} />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </div>
