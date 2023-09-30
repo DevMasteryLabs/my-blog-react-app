@@ -1,3 +1,4 @@
+import Button from 'react-bootstrap/Button';
 
 function CreatePost() {
   return (
@@ -12,7 +13,7 @@ function CreatePost() {
           <label htmlFor='post-body' className='form-label'>Post body</label>
           <textarea className='form-control' id='post-body' rows='8'></textarea>
         </div>
-        <button type='submit' className='btn btn-primary'>Submit</button>
+        <Button type='submit' variant='primary'>Submit</Button>
       </form>
     </div>
   );

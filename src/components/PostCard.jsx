@@ -1,14 +1,18 @@
 import { Link } from 'react-router-dom'
+import Card from 'react-bootstrap/Card';
+// import Button from 'react-bootstrap/Button';
 
 function PostCard({ post }) {
   return (
-    <div className='card mb-3'>
-      <div className='card-body'>
-        <h5 className='card-title'>{post.title}</h5>
-        <p className='card-text text-truncate'>{post.body}</p>
+    <Card className='mb-3'>
+      <Card.Body>
+        <Card.Title>{post.title}</Card.Title>
+        <Card.Text className='text-truncate'>{post.body}</Card.Text>
         <Link to={`/posts/${post.id}`} className='btn btn-primary'>Details...</Link>
-      </div>
-    </div>
+        {/* OR */}
+        {/* <Button as={Link} variant='primary' to={`/posts/${post.id}`}>Details...</Button> */}
+      </Card.Body>
+    </Card>
   )
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
 
 function PostDetails(props) {
   const { postsList } = props
@@ -21,7 +22,7 @@ function PostDetails(props) {
             <>
               <h4 className='text-center'>{post.title}</h4>
               <p>{post.body}</p>
-              <button type='submit' className='btn btn-danger mx-auto d-block'>Delete</button>
+              <Button type='submit' variant='danger' className='mx-auto d-block'>Delete</Button>
             </>
           )
           : <p className='text-danger'>Post not found</p>
