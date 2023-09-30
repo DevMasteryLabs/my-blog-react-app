@@ -28,6 +28,10 @@ function App() {
     setPosts([post, ...posts])
   }
 
+  const handleDeletePost = (id) => {
+    setPosts(posts.filter(post => post.id !== id))
+  }
+
   return (
     <BrowserRouter>
       <div>
@@ -35,7 +39,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/posts' element={<Posts postsList={posts} />} />
-          <Route path='/posts/:id' element={<PostDetails postsList={posts} />} />
+          <Route
+            path='/posts/:id'
+            element={<PostDetails postsList={posts} onDeletePost={handleDeletePost} />}
+          />
           <Route path='/new-post' element={<CreatePost onAddPost={handleAddPost} />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
